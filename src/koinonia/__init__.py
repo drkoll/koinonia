@@ -22,6 +22,19 @@ from koinonia.aphesis import (
     members_freed,
     relief,
 )
+from koinonia.allocate import (
+    Allocation,
+    Debtor,
+    allocate_fractional,
+    allocate_whole,
+    martingale_ruin,
+)
+from koinonia.leverage import (
+    revolving,
+    revolving_ceiling,
+    single_pass,
+    sustainability,
+)
 from koinonia.netting import (
     Capture,
     Obligation,
@@ -55,5 +68,9 @@ __all__ = [
     # netting — the capture layer: remove waste, keep the float, operator takes nothing
     "Obligation", "Transfer", "net_positions", "settle", "entropy",
     "Capture", "capture_report", "float_yield", "distribute_kenotic",
+    # allocate — the most relief per dollar, provably optimal
+    "Debtor", "Allocation", "allocate_whole", "allocate_fractional", "martingale_ruin",
+    # leverage — the maximal work of one dollar, bounded by conservation
+    "single_pass", "revolving", "revolving_ceiling", "sustainability",
     "__version__",
 ]

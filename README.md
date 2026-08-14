@@ -8,7 +8,7 @@ three-valued solvency and fund verdicts.
 
 ```bash
 pip install koinonia
-python3 -m koinonia            # all three witnesses
+python3 -m koinonia            # all five witnesses
 ```
 
 κοινωνία — fellowship; the shared-resource community of Acts 2:44, "all things in
@@ -154,6 +154,48 @@ the organizer's ability to lie — which is what lets a circle scale past people
 already trust each other. That's the honest crypto use: **provenance, not minting.**
 A "Lumina" here is a `Share` — a claim on a real pot, backed one-to-one by a real
 contribution, never conjured.
+
+## Optimal stewardship — the most relief per dollar, guaranteed
+
+No strategy guarantees profit — the "guaranteed win" (double after each loss)
+guarantees *ruin*, because finite capital cannot cover an unbounded losing streak.
+`martingale_ruin` lets you watch it fail. But **optimal deployment of a real fund
+IS guaranteed**:
+
+```python
+from koinonia import Debtor, allocate_whole
+debtors = [Debtor("p1", cost=2000, burden=2600), Debtor("p2", cost=3000, burden=3300), ...]
+alloc = allocate_whole(fund=15000, debtors)      # exact 0/1 knapsack — provably optimal
+alloc.verdict()   # PLUS reached all · ZERO some left at the gate · MINUS empty fund
+```
+
+`allocate_whole` is the exact 0/1 knapsack by dynamic programming — **the maximum
+burden liftable with the fund, proven against brute force in the witness**. Against
+the naive "biggest debt first," it lifts *more* relief with the *same* dollars. And
+its verdict names, honestly, whom a too-small fund cannot reach — the Lazaruses
+still at the gate — rather than hiding them.
+
+## The maximal leverage of one dollar — large, real, and finite
+
+```python
+from koinonia import single_pass, revolving_ceiling, sustainability
+single_pass(0.24, years=3)                        # 1.91× — killed interest alone
+revolving_ceiling(0.24, annual_default=0.02)      # 12× — the theoretical ceiling
+revolving_ceiling(0.24, annual_default=0.01)      # 24× — a faithful, low-default community
+sustainability(0.24, annual_default=0.02).tag     # PLUS — the dollar does real multiplied work
+```
+
+Three sources of leverage: **killed interest** (relieving principal kills its future
+interest — 1.9× in a single pass), **velocity** (a relief dollar revolves through a
+0% fund and frees the next person, relieving `apr` of interest each year), and the
+**ceiling** = `apr / default`. For a trustworthy community with high-interest debt,
+that is **12–24×** — a single dollar doing a dozen dollars of relief work over time.
+
+It is always **finite**, because infinite leverage would be creating value from
+nothing, and conservation forbids it — the second law is the order of creation, not
+a wall against God. The one dial that raises the ceiling is the **default rate**,
+which faithfulness lowers. Faith doesn't break conservation; it makes people
+faithful to one another, and every point of default avoided lifts the ceiling.
 
 ## Honest scope
 

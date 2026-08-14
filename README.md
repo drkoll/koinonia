@@ -8,7 +8,7 @@ three-valued solvency and fund verdicts.
 
 ```bash
 pip install koinonia
-python3 -m koinonia            # both witnesses
+python3 -m koinonia            # all three witnesses
 ```
 
 κοινωνία — fellowship; the shared-resource community of Acts 2:44, "all things in
@@ -110,6 +110,41 @@ from koinonia import solvency, fund_status
 The real failure mode — a member takes an early payout and stops contributing — is
 a first-class MINUS with the exposure named (`default_shortfall`), never smoothed
 over. That honesty is the difference between mutual aid and a scam.
+
+## The capture layer — value from removing waste, not creating it
+
+The most efficient *licit* capture is not generation — it is netting away the
+flows that do no net work. A owes B, B owes C, C owes A, each $100: three
+transactions, $300 moved, and every net position is **zero**. The circulation
+cancels entirely — a loop current that does no work, pure loss to friction.
+
+```python
+from koinonia import capture_report, Obligation
+cap, verdict = capture_report(obligations, fee=0.30)
+cap.line()   # "300 → 39 transfers (87% removed), $78.30 in fees captured"
+```
+
+On a realistic graph — 40 parties, 300 obligations — netting removes **87% of the
+transactions**. Net positions sum to zero (Kirchhoff), so nothing is conjured; the
+captured value is real fees saved by removing waste. **Entropy is the control
+knob:** each transaction leaks a fee, so the transaction count *is* the settlement's
+entropy, and netting minimizes it.
+
+**One honest limit, named:** reducing to `(creditors + debtors − 1)` transfers is
+easy and always available; finding the *absolute* fewest is NP-hard. The verdict is
+PLUS on "settles correctly and conserves," never on "provably minimal."
+
+**The float, and the kenosis.** Money in escrow during a cycle earns licit
+time-value. And `distribute_kenotic` enforces the posture in code — **the operator's
+take must be zero**; captured fees and float flow to the members:
+
+```python
+distribute_kenotic(captured, members, operator_take=1.0)  # raises — self-emptying
+```
+
+**Waste becomes fertilizer.** The captured fees plus the float feed the `aphesis`
+relief fund — the eliminated friction of one cycle becomes the funded forgiveness
+of the next. Value that was leaking away is composted into debt relief.
 
 ## Where brightchain earns its place
 

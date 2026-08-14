@@ -22,6 +22,17 @@ from koinonia.aphesis import (
     members_freed,
     relief,
 )
+from koinonia.netting import (
+    Capture,
+    Obligation,
+    Transfer,
+    capture_report,
+    distribute_kenotic,
+    entropy,
+    float_yield,
+    net_positions,
+    settle,
+)
 from koinonia.circle import (
     Circle,
     Share,
@@ -41,5 +52,8 @@ __all__ = [
     "interest_saved", "solvency", "default_shortfall",
     # the release — funded forgiveness at a covenant ratio
     "Covenant", "Relief", "relief", "burden_lifted", "members_freed", "fund_status",
+    # netting — the capture layer: remove waste, keep the float, operator takes nothing
+    "Obligation", "Transfer", "net_positions", "settle", "entropy",
+    "Capture", "capture_report", "float_yield", "distribute_kenotic",
     "__version__",
 ]

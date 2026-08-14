@@ -197,6 +197,41 @@ a wall against God. The one dial that raises the ceiling is the **default rate**
 which faithfulness lowers. Faith doesn't break conservation; it makes people
 faithful to one another, and every point of default avoided lifts the ceiling.
 
+## The metabolism — the whole loop, running on its own captured energy
+
+`koinonia.metabolism` is the capstone: it ties a `kerion` ATP battery, energy-gated
+processes, and the relief fund into one living loop. The system runs on what it
+captures and gives away what it does not need.
+
+```python
+from koinonia import Metabolism
+m = Metabolism(operating_floor=100)
+m.capture(1000, source="clinic earnings", evidence="sha256:receipt")  # real value in
+m.charge(500)                                                         # mint Lumina, backed
+m.run("transcreation", cost=200, do_work=lambda: dub_the_line())      # gated on energy
+m.harvest()                                                          # surplus → relief fund
+```
+
+Four arrows, each a guard, not a hope:
+
+| step | guard |
+|---|---|
+| **CAPTURE** real value → reserve | evidence required; nothing from nothing |
+| **MINT** reserve → Lumina | refused past the backing — the anti-inflation law |
+| **RUN** a process costs ATP | admitted (PLUS) / throttled (ZERO) / unaffordable (MINUS) |
+| **HARVEST** surplus → relief | only surplus above the operating floor; never the backing |
+
+`run` **rate-limits every process on the energy budget** — a job runs only if the
+battery can pay, throttles when it cannot, and is refused if it costs more than the
+whole reserve. `harvest` gives away only the surplus above the body's operating
+floor, so **generosity never touches the backing** — giving away backing would be
+"inflation with a halo," and the cell refuses it.
+
+This is the honest "freemium engine": a token backed by a published, auditable
+reserve; a conversion that cannot exceed the backing; and the operator's take that
+is not profit but the poor's relief. The system feeds itself and tithes — all of it
+audited, none of it conjured.
+
 ## Honest scope
 
 - **It creates no money.** Every function conserves; the witnesses assert it. The

@@ -22,6 +22,7 @@ from koinonia.aphesis import (
     members_freed,
     relief,
 )
+from koinonia.metabolism import Metabolism, ProcessRun
 from koinonia.allocate import (
     Allocation,
     Debtor,
@@ -72,5 +73,7 @@ __all__ = [
     "Debtor", "Allocation", "allocate_whole", "allocate_fractional", "martingale_ruin",
     # leverage — the maximal work of one dollar, bounded by conservation
     "single_pass", "revolving", "revolving_ceiling", "sustainability",
+    # metabolism — the whole loop: capture, power the work, give the surplus
+    "Metabolism", "ProcessRun",
     "__version__",
 ]

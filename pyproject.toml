@@ -18,7 +18,7 @@ classifiers = [
   "Topic :: Office/Business :: Financial",
   "Typing :: Typed",
 ]
-dependencies = ["krisis>=0.1.0"]
+dependencies = ["krisis>=0.1.0", "kerion>=0.1.0"]
 
 [project.scripts]
 koinonia = "koinonia.circle:_witness"

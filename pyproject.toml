@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "koinonia"
+version = "0.1.0"
+description = "Mutual-aid debt relief as verified math: a 0% lending circle and a funded forgiveness covenant that create no money and conserve exactly."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+authors = [{ name = "Ian Koll" }]
+keywords = ["rosca", "lending circle", "mutual aid", "debt", "microfinance", "jubilee", "conservation"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Financial and Insurance Industry",
+  "Programming Language :: Python :: 3",
+  "Topic :: Office/Business :: Financial",
+  "Typing :: Typed",
+]
+dependencies = ["krisis>=0.1.0"]
+
+[project.scripts]
+koinonia = "koinonia.circle:_witness"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/koinonia"]
